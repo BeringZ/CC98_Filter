@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CC98用户屏蔽管理</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h3>CC98用户屏蔽管理</h3>
+        
+        <div class="add-user">
+            <input type="text" id="usernameInput" placeholder="输入要屏蔽的用户名">
+            <button id="addUserBtn">添加</button>
+        </div>
+        
+        <div class="user-list">
+            <div class="list-header">
+                <span>用户名</span>
+                <span>操作</span>
+            </div>
+            <div id="userListContainer"></div>
+        </div>
+        
+        <div class="stats">
+            <p>已屏蔽用户: <span id="blockedCount">0</span> 个</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
