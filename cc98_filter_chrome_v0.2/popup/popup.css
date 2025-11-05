@@ -1,0 +1,214 @@
+body {
+    /* 修改宽度和高度值来调整弹出窗口大小 */
+    width: 280px;  /* 原为500px，增大窗口宽度 */
+    height: 900px; /* 增大窗口高度 */
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    padding: 15px;
+}
+
+h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.add-user {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
+#usernameInput {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#addUserBtn {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addUserBtn:hover {
+    background-color: #45a049;
+}
+
+.user-list {
+    border: 1px solid #0c0b0b;
+    border-radius: 4px;
+    max-height: 500px; /* 增加列表最大高度以显示更多用户 */
+    overflow-y: auto;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 30px 50px; /* 调整内边距 */
+    border-bottom: 10px solid #eee;
+    line-height: 1.5; /* 调节行高 */
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0; /* 允许文本截断 */
+}
+
+.user-name {
+    font-weight: bold;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-times {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.user-times br {
+    display: block;
+    content: "";
+    margin-top: 2px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0; /* 防止操作区域被压缩 */
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.function-container {
+    position: relative;
+    display: inline-block;
+}
+
+.function-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 30px;
+}
+
+.function-btn:hover {
+    background-color: #da190b;
+}
+
+.function-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 80px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    right: 0;
+}
+
+.menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: #f5f5f5;
+}
+
+.stats {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.empty-list {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
