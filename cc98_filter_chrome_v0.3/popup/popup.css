@@ -1,0 +1,410 @@
+/* ==================== 整体布局和基本样式 ==================== */
+body {
+    width: 400px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 13px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== 顶部标题样式 ==================== */
+.header {
+    text-align: center;
+    padding: 15px 0 10px 0;
+    background-color: #fff;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* ==================== 分割线样式 ==================== */
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 0;
+}
+
+/* ==================== 标签页导航样式 ==================== */
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    background-color: #fff;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 6px 12px;
+    border: none;
+    background: none;
+    color: #666;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background-color: #3498db;
+    color: white;
+    font-weight: 500;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.tab-separator {
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* ==================== 输入框和操作按钮区域样式 ==================== */
+.input-section {
+    display: flex;
+    padding: 12px 15px;
+    background-color: #fff;
+    gap: 8px;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+}
+
+#itemInput {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#itemInput:focus {
+    border-color: #3498db;
+}
+
+#itemInput::placeholder {
+    color: #999;
+}
+
+.add-btn {
+    padding: 8px 15px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.add-btn:hover {
+    background-color: #27ae60;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #7f8c8d;
+}
+
+/* ==================== 屏蔽清单标题样式 ==================== */
+.list-title {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* ==================== 列表容器样式 ==================== */
+.management-section {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.list-container {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.item-list {
+    background-color: #fff;
+}
+
+/* ==================== 单个项目样式 ==================== */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    min-height: 50px;
+}
+
+.item:hover {
+    background-color: #f8f9fa;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+/* 三列布局 */
+.item-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 第一列：用户名和标签（左对齐） */
+.item-col-left {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    align-items: flex-start;
+}
+
+/* 第二列：开关和功能键（居中） */
+.item-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 80px;
+    margin: 0 10px;
+}
+
+/* 第三列：时间信息（右对齐） */
+.item-col-right {
+    text-align: right;
+    align-items: flex-end;
+    min-width: 80px;
+}
+
+/* 用户名样式 */
+.item-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #2c3e50;
+    font-size: 13px;
+    max-width: 120px;
+}
+
+/* 标签样式 */
+.item-label {
+    font-size: 11px;
+    color: #e74c3c;
+    background-color: #ffeaa7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    display: inline-block;
+}
+
+/* 时间信息样式 */
+.time-info {
+    font-size: 10px;
+    color: #7f8c8d;
+    line-height: 1.3;
+}
+
+.time-line {
+    white-space: nowrap;
+}
+
+/* ==================== 开关控件样式 ==================== */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 18px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 18px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2ecc71;
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* ==================== 功能按钮和下拉菜单样式 ==================== */
+.function-container {
+    position: relative;
+    display: inline-block;
+}
+
+.function-btn {
+    background: none;
+    border: 1px solid #ddd;
+    color: #7f8c8d;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.function-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+    color: #333;
+}
+
+.function-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 80px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+    right: 0;
+    top: 100%;
+    margin-top: 2px;
+}
+
+.menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: #f8f9fa;
+    color: #e74c3c;
+}
+
+/* ==================== 空列表提示样式 ==================== */
+.empty-list {
+    padding: 40px 20px;
+    text-align: center;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* ==================== 统计信息样式 ==================== */
+.stats {
+    padding: 10px 15px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 12px;
+    color: #7f8c8d;
+    border-top: 1px solid #e0e0e0;
+}
+
+#statsText {
+    font-weight: 500;
+}
+
+#blockedCount {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* ==================== 滚动条样式 ==================== */
+.list-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+.list-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

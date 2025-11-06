@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CC98屏蔽管理</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面顶部标题 -->
+        <header class="header">
+            <h1>CC98_Filter</h1>
+        </header>
+        
+        <!-- 分割横线 -->
+        <hr class="divider">
+        
+        <!-- 标签页导航 - 居中排列，用竖线隔开 -->
+        <nav class="tab-nav">
+            <button id="userTabBtn" class="tab-btn active">用户屏蔽管理</button>
+            <span class="tab-separator">|</span>
+            <button id="boardTabBtn" class="tab-btn">版块屏蔽管理</button>
+        </nav>
+        
+        <!-- 分割横线 -->
+        <hr class="divider">
+        
+        <!-- 输入框和操作按钮区域 -->
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="itemInput" placeholder="输入用户名，回车进行添加">
+                <button id="addItemBtn" class="add-btn">添加</button>
+            </div>
+            <div class="action-buttons">
+                <button id="importDataBtn" class="action-btn">导入</button>
+                <button id="exportDataBtn" class="action-btn">导出</button>
+            </div>
+        </div>
+        
+        <!-- 分割横线 -->
+        <hr class="divider">
+        
+        <!-- 屏蔽清单标题 -->
+        <div class="list-title">屏蔽清单</div>
+        
+        <!-- 用户屏蔽管理区域 -->
+        <div id="userManagement" class="management-section">
+            <div class="item-list">
+                <div id="userListContainer" class="list-container"></div>
+            </div>
+        </div>
+        
+        <!-- 版块屏蔽管理区域 -->
+        <div id="boardManagement" class="management-section" style="display:none;">
+            <div class="item-list">
+                <div id="boardListContainer" class="list-container"></div>
+            </div>
+        </div>
+        
+        <!-- 分割横线 -->
+        <hr class="divider">
+        
+        <!-- 统计信息 -->
+        <div class="stats">
+            <span id="statsText">已屏蔽用户: <span id="blockedCount">0</span> 个</span>
+        </div>
+        
+        <!-- 隐藏的文件输入框用于导入 -->
+        <input type="file" id="importFileInput" accept=".json" style="display: none;">
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
