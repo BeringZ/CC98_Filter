@@ -1,7 +1,7 @@
 # CC98_Filter
 我的98我做主，不想看的内容直接拒绝 | My CC98, My Own
 
-- 最新版本： v1.1.0
+- 最新版本： v1.1.1
 - 适配： Chrome、Edge（其他的没测试）
 
 ### 功能
@@ -94,6 +94,18 @@ CC98 DOM -> Adapter 提取 ContentItem -> RuleEngine 匹配 -> Renderer 可逆�
 - DOM fixture 测试（防 CC98 改版导致 selector 失效）
 - 正则规则、白名单、临时规则（1 天 / 7 天）
 - 规则组与屏蔽统计
+
+## 测试
+
+端到端测试需 ZJU 内网（或 RVPN），详见 `tests/e2e.js` 文件头注释：
+
+```bash
+# 1. 启动带扩展的 Chrome for Testing（见 tests/e2e.js 头部命令）
+# 2. 运行
+node tests/e2e.js check          # 检查注入
+node tests/e2e.js login          # 登录（环境变量 CC98_USER / CC98_PASS）
+node tests/e2e.js test <扩展ID>   # 过滤功能全套测试
+```
 
 # 致谢
 技术支持：**Deepseek-r1**
