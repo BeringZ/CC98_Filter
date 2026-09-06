@@ -2,17 +2,27 @@
   "manifest_version": 3,
   "name": "CC98_Filter",
   "description": "屏蔽拉黑助手，防不适内容突脸 | My CC98, My Own",
-  "version": "0.3.0",
-  "permissions": ["storage", "activeTab"],
+  "version": "1.0.0",
+  "permissions": ["storage"],
   "host_permissions": ["https://www.cc98.org/*"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "CC98_Filter"
   },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
   "content_scripts": [
     {
       "matches": ["https://www.cc98.org/*"],
-      "js": ["content.js"],
+      "js": [
+        "shared/storage.js",
+        "content/adapters.js",
+        "content/renderer.js",
+        "content/quick-block.js",
+        "content/content.js"
+      ],
       "run_at": "document_end"
     }
   ],
