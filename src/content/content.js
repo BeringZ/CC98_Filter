@@ -64,7 +64,13 @@
       this.observer = new MutationObserver((mutations) => {
         const roots = [];
         for (const mutation of mutations) {
+          // childList: 新增元素节点
           for (const node of mutation.addedNodes) {
+            if (Adapters.looksRelevant(node)) roots.push(node);
+          }
+          // characterData: React 常先挂空壳再填文本（如热榜标题/版块名）
+          if (mutation.type === 'characterData') {
+            const node = mutation.target;
             if (Adapters.looksRelevant(node)) roots.push(node);
           }
         }
@@ -75,7 +81,11 @@
         }, REPROCESS_DEBOUNCE);
       });
 
-      this.observer.observe(document.body, { childList: true, subtree: true });
+      this.observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
     }
 
     // ---------- 处理 ----------

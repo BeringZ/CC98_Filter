@@ -79,10 +79,13 @@
   ];
 
   // 在 root 范围内收集所有待处理元素
+  // root 可以是 Element / Document / DocumentFragment / 文本节点(取其父元素)
   // 返回 [{ el, adapter, item }]
   function collect(root) {
     const results = [];
-    if (!root || root.nodeType !== 1) return results;
+    if (!root) return results;
+    if (root.nodeType === 3) root = root.parentElement; // 文本节点 -> 父元素
+    if (!root || (root.nodeType !== 1 && root.nodeType !== 9 && root.nodeType !== 11)) return results;
 
     ADAPTERS.forEach(function (adapter) {
       // root 自身命中 selector 的情况（增量处理时 root 就是单个节点）
@@ -99,7 +102,9 @@
 
   // 判断节点是否与过滤逻辑相关（用于 MutationObserver 预筛）
   function looksRelevant(node) {
-    if (node.nodeType !== 1) return false;
+    if (!node) return false;
+    if (node.nodeType === 3) node = node.parentElement; // 文本节点 -> 父元素
+    if (!node || node.nodeType !== 1) return false;
     if (node.closest && node.closest('.cc98f-ph, .cc98f-quickbtn, .cc98f-toast')) return false;
     for (let i = 0; i < ADAPTERS.length; i++) {
       const sel = ADAPTERS[i].selector;
